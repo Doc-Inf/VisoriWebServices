@@ -1,27 +1,35 @@
 <?php
     require_once 'functions.php';
 
-    $video = [];
-    if(isset($_GET['materia'])){
-        $materia = $_GET['materia'];
-        if(isset($_GET['argomento'])){
-            $argomento = $_GET['argomento'];
-            $video = searchVideo($db, $materia, $argomento);
+    $dati = [];
+
+    if(isset($_GET['getMaterie']) || isset($_GET['getArgomenti'])){
+        if(isset($_GET['getMaterie'])){
+            $dati = getMaterie($db);
         }else{
-            $video = searchVideo($db, $materia);
+            $dati = getArgomenti($db);
         }
+
     }else{
-        if(isset($_GET['argomento'])){
-            $argomento = $_GET['argomento'];
-            $video = searchVideo($db, null, $argomento);
+        $video = [];
+        if(isset($_GET['materia'])){
+            $materia = $_GET['materia'];
+            if(isset($_GET['argomento'])){
+                $argomento = $_GET['argomento'];
+                $dati = searchVideo($db, $materia, $argomento);
+            }else{
+                $dati = searchVideo($db, $materia);
+            }
         }else{
-            $video = searchVideo($db);
-        }
+            if(isset($_GET['argomento'])){
+                $argomento = $_GET['argomento'];
+                $dati = searchVideo($db, null, $argomento);
+            }else{
+                $dati = searchVideo($db);
+            }
+        }       
     }
     
     header('Content-type: application/json');
-    //print_r($video);
-    
-    echo json_encode($video, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-
+    echo json_encode($dati, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 ?>

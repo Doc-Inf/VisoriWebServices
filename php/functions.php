@@ -34,7 +34,7 @@
         if($materia==null && $argomento==null){
             $sql = "SELECT * FROM Video;";            
         }else{
-            if($materia!=null && $argomento==null){
+            if($materia!=null && $argomento==null){                
                 $sql = <<<SQL
                     SELECT DISTINCT v.*
                     FROM Video v JOIN ArgomentoVideo av ON av.video=v.id 
@@ -44,11 +44,12 @@
                 SQL;
             }else{
                 if($materia==null && $argomento!=null){
+                    $argomentoShort = substr($argomento,0,(strlen($argomento)-1));
                     $sql = <<<SQL
                         SELECT DISTINCT v.*
                         FROM Video v JOIN ArgomentoVideo av ON av.video=v.id 
                             JOIN Argomento a ON av.argomento=a.id 
-                        WHERE LOWER(a.nome) LIKE LOWER('%$argomento%');
+                        WHERE LOWER(a.nome) LIKE LOWER('%$argomentoShort%');
                     SQL;
                 }else{
                     $sql = <<<SQL
@@ -66,4 +67,24 @@
         return $res;
     }
    
+
+    function getMaterie($db){
+        $res = null;
+        $sql = <<<s
+            SELECT *
+            FROM Materia m;
+        s;
+        $res = $db->query($sql);
+        return $res;
+    }
+
+    function getArgomenti($db){
+        $res = null;
+        $sql = <<<s
+            SELECT a.id,a.nome as 'nomeArgomento',m.nome as 'materia', a.materia as 'idMateria'
+            FROM Argomento a JOIN Materia m ON a.materia=m.id;
+        s;
+        $res = $db->query($sql);
+        return $res;
+    }
 ?>

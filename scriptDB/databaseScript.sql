@@ -115,16 +115,17 @@ INSERT INTO Argomento(id,nome,materia) VALUES (1,"Cell",1), (2,"cellula",1),
 (17,"Inquinamento plastiche",2),(18,"EARTHQUAKE",2),(19,"Terremoto",2),
 (20,"Ercolano",2), (21,"Eruzione",2),(22,"Tsunami",2),(23,"Formazione della Terra",2),
 (24,"How the Earth was Formed",2), (25,"EARTHQUAKES",2),(26,"Terremoti",2),
-(27,"Cellule",1),(28,"plastica",2),(29,"vulcano",2),(30,"vulcani",2);
+(27,"Cellule",1),(28,"plastica",2),(29,"vulcano",2),(30,"vulcani",2),(31,"cervello",1),
+(32,"orecchio",1),(33,"sistema circolatorio",1),(34,"corpo umano",1);
 
 SELECT 'INSERIMENTO DEGLI ARGOMENTI COMPLETATO' as '';
 
-INSERT INTO ArgomentoVideo(video, argomento) VALUES (1,1), (1,2), (1,3), (1,4), 
-(1,5), (1,6), (2,1), (2,2), (3,1), (3,2), (4,1), (4,2), (5,1), (5,2), (6,7), 
-(6,8), (7,1), (7,2), (8,9), (8,10), (8,11), (8,12), (9,13), (10,14), (10,15), 
-(11,16), (11,17), (12,18), (12,19), (13,20), (13,21), (14,22), (15,23), (15, 24),
- (12,25), (12,26), (1,27), (2,27), (3,27), (4,27), (5,27), (11,28), (13,29), 
- (13,30);
+INSERT INTO ArgomentoVideo(video, argomento) VALUES (1,3), (1,4), (1,31), (1,32),
+(1,33), (1,34), (1,5), (1,6), (2,1), (2,2), (3,1), (3,2), (4,1), (4,2), (5,1), 
+(5,2), (6,7), (6,8), (7,1), (7,2), (8,9), (8,10), (8,11), (8,12), (9,13), (10,14), 
+(10,15), (11,16), (11,17), (12,18), (12,19), (13,20), (13,21), (14,22), (15,23), 
+(15, 24), (12,25), (12,26), (1,27), (2,27), (3,27), (4,27), (5,27), (11,28), 
+(13,29), (13,30);
 
 SELECT 'ASSOCIAZIONE DEGLI ARGOMENTI AI VIDEO COMPLETATO' as '';
 

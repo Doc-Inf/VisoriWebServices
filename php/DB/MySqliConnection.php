@@ -71,7 +71,7 @@ class MysqliConnection implements DB{
         $this->con->commit();
     }
 
-    public function roolback(){
+    public function rollback(){
         $this->con->rollback();
     }
 
@@ -82,6 +82,10 @@ class MysqliConnection implements DB{
 
     public function getErrors(){
         return "Errors: " . $con -> error;
+    }
+
+    public function lastInsertId(){
+        return $this->con->insert_id;
     }
 }
 

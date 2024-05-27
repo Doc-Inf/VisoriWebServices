@@ -64,6 +64,11 @@
             return $result;        
         }
 
+        public function lastInsertId(){
+            $con = $this->getConnection();        
+            return $con->lastInsertId();
+        }
+
         public function beginTransaction(){
             $this->con->beginTransaction();
         }
@@ -72,7 +77,7 @@
             $this->con->commit();
         }
     
-        public function roolback(){
+        public function rollback(){
             $this->con->rollback();
         }
     

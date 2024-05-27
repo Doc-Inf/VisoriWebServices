@@ -5,9 +5,10 @@
         public function dmlCommand(string $sql,$params=[]);
         public function beginTransaction();
         public function commit();
-        public function roolback();
+        public function rollback();
         public function close();
         public function getErrors();
+        public function lastInsertId();
     }
 
 ?>

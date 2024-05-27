@@ -1,10 +1,22 @@
 SET NAMES 'utf8mb4';
 SET CHARACTER SET utf8mb4;
 
+DROP TABLE IF EXISTS Utente;
 DROP TABLE IF EXISTS ArgomentoVideo;
 DROP TABLE IF EXISTS Argomento;
 DROP TABLE IF EXISTS Video;
 DROP TABLE IF EXISTS Materia;
+
+CREATE TABLE IF NOT EXISTS Utente(
+    id int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(60) NOT NULL,
+    cognome VARCHAR(60) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    password VARCHAR(256) NOT NULL,
+    CONSTRAINT emailKey UNIQUE(email)
+);
+
+SELECT "Tabella Utente Creata" as "";
 
 CREATE TABLE IF NOT EXISTS Video(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -44,6 +56,10 @@ CREATE TABLE IF NOT EXISTS ArgomentoVideo(
 );
 
 SELECT "Tabella ArgomentoVideo Creata" as "";
+
+INSERT INTO Utente(nome,cognome,email,password) VALUES ("admin","","doc-inf@itisvallauri.edu.it","108b95a0efb0f7a8a1ac4176281e565795fc4ccd5d0be9cd713983e5ca0cad9e");
+
+SELECT "Utenti inseriti con successo" as "";
 
 INSERT INTO Materia(nome) VALUES ('Biologia'),
                                 ('Scienze della Terra'),

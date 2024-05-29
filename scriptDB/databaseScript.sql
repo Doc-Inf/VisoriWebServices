@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS Utente(
     cognome VARCHAR(60) NOT NULL,
     email VARCHAR(60) NOT NULL,
     password VARCHAR(256) NOT NULL,
-    CONSTRAINT emailKey UNIQUE(email)
+    CONSTRAINT emailKey UNIQUE(email),
+    CONSTRAINT nomeCognomeUnique UNIQUE(nome,cognome)
 );
 
 SELECT "Tabella Utente Creata" as "";
@@ -26,7 +27,8 @@ CREATE TABLE IF NOT EXISTS Video(
     image VARCHAR(200),
     link VARCHAR(200) NOT NULL,
     lingua VARCHAR(50) NOT NULL,
-    CONSTRAINT linkUnique UNIQUE(link)
+    CONSTRAINT linkUnique UNIQUE(link),
+    CONSTRAINT titoloAutoreUnique UNIQUE(titolo,autore)
 );
 
 SELECT "Tabella Video Creata" as "";
